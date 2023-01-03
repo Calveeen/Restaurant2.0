@@ -7,21 +7,24 @@
 
 body{
     background-color: #597075;
-    width: 100%;
 }
 
-.hero{
+.content{
     background: url("../img/hero-img.jpg") no-repeat;
     background-size: cover;
     background-position: center;  
-    height: 800px;
     box-shadow: inset 0 0 0 1000px rgba(32,40,42,0.6);
+    height: calc(100vh - 80px);
+    color: #D1CFCF;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 32px;
 }
 
 header{
-    justify-content: space-between;
     background-color: #20282A;
     color: #93B8C2;
+    padding: 8px 16px;
 }
 
 .hidden{
@@ -31,7 +34,7 @@ header{
 .mobile{
    display: flex;
    justify-content: space-between;
-   padding: 16px 32px;
+   padding: 16px 0;
 }
 
 .mobile > .open{
@@ -49,6 +52,11 @@ header{
     cursor: pointer;
 }
 
+.icons{
+    display: flex;
+    align-items: center;
+}
+
 .icons img{
     width: 32px;
 }
@@ -61,10 +69,121 @@ header{
     margin: 0 24px;
 }
 
-@media screen and (min-width: 541px){
-    header, .header-left, .header-right{
+
+
+.mobile-menu{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: -1000px;
+    background-color: #597075;
+    height: 100vh;
+    transition: 0.8s;
+    text-align: center;
+    font-size: 32px;
+    padding-top: 128px;
+    display: grid;
+    grid-template-rows: repeat(4, 128px);
+}
+
+.mobile-clicked{
+    transition: 0.5s;
+    left: 0;
+}
+
+
+
+/* Mobile menu hover underline and styling*/
+.mobile-menu > h4:hover{
+    cursor: pointer;
+}
+.mobile-menu > h4:hover::after{
+    width: 50%;
+}
+
+.mobile-menu > h4::after{
+    content: "";
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: 0.3s;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+.mobile-menu > img{
+    width: 32px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    
+}
+
+.mobile-menu > img:hover{
+    scale: 1.2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media screen and (min-width: 590px){
+    header{
+        display: grid;  
+        grid-template-columns: 1fr 50fr 1fr;
+    }
+
+    .open{
+        display: none;
+    }
+
+    .mobile-menu{
+        display: none;
+    }
+
+
+    .logo{
+        display: block;
+    }
+
+    .logo > img{
+        width: 56px;
+        margin-right: 1rem;
+        
+    }
+
+    .logo > img:hover{
+        cursor: pointer;
+    }
+
+    .nav, .icons{
         display: flex;
-        padding: 8px 16px;
+    }
+
+    .nav{
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .nav > h4{
+        padding: 0 16px;
+    }
+
+    .nav > h4:hover{
+        cursor: pointer;
+    }
+    .nav > h4:hover::after{
+        width: 100%;
+    }
+
+    .nav > h4::after{
+        content: "";
+        width: 0;
+        height: 1px;
+        background: white;
+        transition: 0.3s;
+        display: block;
+        margin: 0 auto;
     }
 }
 
